@@ -1,0 +1,56 @@
+.ct-chart .ct-series-a .ct-line {
+    stroke: red;
+
+}
+
+.ct-chart .ct-series-b .ct-line {
+    stroke: #4F2112;
+}
+
+.ct-chart .ct-series-c .ct-line {
+    stroke: green;
+}
+
+.ct-chart .ct-series-d .ct-line {
+    stroke: blue;
+}
+
+.ct-legend {
+    padding-left: 70px;
+}
+
+/* basic positioning */
+.ct-legend {
+    list-style: none;
+}
+
+.ct-legend li {
+    float: left;
+    margin-right: 10px;
+}
+
+.ct-legend span {
+    border: 1px solid #ccc;
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+}
+
+/* your colors */
+.ct-legend .ct-series-0 span {
+    background-color: red;
+    font-size: 1.5em;
+}
+
+.ct-legend .ct-series-1 span {
+    background-color: #4F2112;;
+}
+
+.ct-legend .ct-series-2 span {
+    background-color: green;
+}
+
+.ct-legend .ct-series-3 span {
+    background-color: blue;
+}
