@@ -12,8 +12,19 @@
 
 </head>
 <body>
+<input type="radio" id="kaefer" value="kaefer" name="simulation_type" checked>
+<label for="kaefer">Käfer</label>
+<input type="radio" id="spinne" value="spinne" name="simulation_type">
+<label for="spinne">Spinne</label>
+<input type="radio" id="nachfalter" value="nachtfalter" name="simulation_type">
+<label for="nachfalter">Nachtfalter</label>
+<input type="radio" id="schlange" value="schlange" name="simulation_type">
+<label for="schlange">Schlange</label>
+<input type="radio" id="lurch" value="lurch" name="simulation_type">
+<label for="lurch">Lurch</label>
+
 <fieldset>
-    <legend>Enter the number of generations</legend>
+    <legend>Enter der Iterationen</legend>
     <input type="text" value="" id="input">
     <input type="button" value="GO" onclick="run()">
 

@@ -1,15 +1,10 @@
-//green 1 , braun 2, blue 3 , red 4
-
-
+//green 1 , braun 2, blue(white) 3 , red 4
 window.onload = function () {
-
-
     if (!Array.prototype.last) {
         Array.prototype.last = function () {
             return this[this.length - 1];
         };
     }
-
 }
 
 function getRandom(oneHundred) {
@@ -34,6 +29,14 @@ function getRandom(oneHundred) {
 function run() {
     let iterations = Number(document.getElementById("input").value)
     let output = [{green: 10, brown: 10, blue: 10, red: 10}]
+    const rbs = document.querySelectorAll('input[name="simulation_type"]');
+    let simulation_type;
+    for (const rb of rbs) {
+        if (rb.checked) {
+            simulation_type = rb.value;
+            break;
+        }
+    }
     for (let i = 0; i < iterations; i++) {
         let cubeRandom = Math.floor(Math.random() * 6) + 1;
         let this_iteration = Object.assign({}, output.last());
@@ -41,13 +44,47 @@ function run() {
         let firstPick = getRandom(this_iteration);
         let secondPick = getRandom(this_iteration);
 
-
-        if ((cubeRandom === 1 || cubeRandom === 2) ||
-            (cubeRandom === 3 && firstPick !== 1) ||
-            (cubeRandom === 4 && firstPick !== 1 && firstPick !== 2) ||
-            (cubeRandom === 5 && firstPick === 3)) {
-            this_iteration[PickToColor(firstPick)]--;
-            this_iteration[PickToColor(secondPick)]++;
+        //if simulation is kaefer
+        if (simulation_type === "kaefer") {
+            if ((cubeRandom === 1 || cubeRandom === 2) ||
+                (cubeRandom === 3 && firstPick !== 1) ||
+                (cubeRandom === 4 && firstPick !== 1 && firstPick !== 2) ||
+                (cubeRandom === 5 && firstPick === 3)) {
+                this_iteration[PickToColor(firstPick)]--;
+                this_iteration[PickToColor(secondPick)]++;
+            }
+        } else if (simulation_type === "spinne") {
+            if ((cubeRandom === 1 || cubeRandom === 2) ||
+                (cubeRandom === 3 && firstPick !== 3) ||
+                (cubeRandom === 4 && firstPick !== 3 && firstPick !== 1) ||
+                (cubeRandom === 5 && firstPick === 4)) {
+                this_iteration[PickToColor(firstPick)]--;
+                this_iteration[PickToColor(secondPick)]++;
+            }
+        } else if (simulation_type === "schlange") {
+            if ((cubeRandom === 1 || cubeRandom === 2) ||
+                (cubeRandom === 3 && firstPick !== 2) ||
+                (cubeRandom === 4 && firstPick !== 2 && firstPick !== 4) ||
+                (cubeRandom === 5 && firstPick === 1)) {
+                this_iteration[PickToColor(firstPick)]--;
+                this_iteration[PickToColor(secondPick)]++;
+            }
+        } else if (simulation_type === "nachtfalter") {
+            if ((cubeRandom === 1 || cubeRandom === 2) ||
+                (cubeRandom === 3 && firstPick !== 4) ||
+                (cubeRandom === 4 && firstPick !== 4 && firstPick !== 3) ||
+                (cubeRandom === 5 && firstPick === 2)) {
+                this_iteration[PickToColor(firstPick)]--;
+                this_iteration[PickToColor(secondPick)]++;
+            }
+        } else if (simulation_type === "lurch") {
+            if ((cubeRandom === 1 || cubeRandom === 2) ||
+                (cubeRandom === 3 && firstPick !== 4) ||
+                (cubeRandom === 4 && firstPick !== 4 && firstPick !== 3) ||
+                (cubeRandom === 5 && firstPick === 2)) {
+                this_iteration[PickToColor(firstPick)]--;
+                this_iteration[PickToColor(secondPick)]++;
+            }
         }
         output.push(this_iteration)
     }
