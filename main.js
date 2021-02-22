@@ -168,7 +168,7 @@ function showCanvas(data) {
                 }
             }),
             Chartist.plugins.legend({
-                legendNames: ['red', 'brown', 'green', 'blue'],
+                legendNames: ['red', 'brown', 'green', 'white'],
                 position: 'top'
             })
         ]
